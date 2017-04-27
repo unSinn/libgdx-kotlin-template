@@ -9,7 +9,7 @@ buildscript {
 
 allprojects {
 
-    group = "me.danbeneventano.anothergame"
+    group = "com.example.gdxgame"
 
     version = "1.0"
 
