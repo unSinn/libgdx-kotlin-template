@@ -1,4 +1,4 @@
-# libgdx-kotlin-template-gsk
+# libgdx-kotlin-template
 
 This is a template for LibGDX using Kotlin,  and [gradle-script-kotlin](https://github.com/gradle/gradle-script-kotlin). It also has [KTX](https://github.com/libktx/ktx) dependencies. It currently only has the core and desktop modules. 
 
