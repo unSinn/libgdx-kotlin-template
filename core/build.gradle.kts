@@ -1,30 +1,15 @@
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
-
-buildscript {
-    repositories {
-        gradleScriptKotlin()
-    }
-    dependencies {
-        classpath(kotlinModule("gradle-plugin"))
-    }
-}
-
-apply {
-    plugin("kotlin")
-}
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 
-configure<KotlinProjectExtension> {
-    experimental.coroutines = Coroutines.ENABLE
+plugins {
+    application
+    kotlin("jvm")
 }
 
 val gdxVersion: String by extra
 val ktxVersion: String by extra
 
 dependencies {
-    compile(kotlinModule("stdlib"))
-    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14")
     compile("com.badlogicgames.gdx:gdx:$gdxVersion")
     compile("io.github.libktx:ktx-actors:$ktxVersion")
     compile("io.github.libktx:ktx-app:$ktxVersion")
@@ -37,4 +22,6 @@ dependencies {
     compile("io.github.libktx:ktx-math:$ktxVersion")
     compile("io.github.libktx:ktx-scene2d:$ktxVersion")
     compile("io.github.libktx:ktx-style:$ktxVersion")
+    compile(kotlin("stdlib"))
 }
+

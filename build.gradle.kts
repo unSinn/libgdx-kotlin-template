@@ -1,32 +1,36 @@
+
 buildscript {
+
     repositories {
-        gradleScriptKotlin()
+        jcenter()
     }
     dependencies {
-        classpath(kotlinModule("gradle-plugin"))
+        classpath("com.github.jengelman.gradle.plugins:shadow:2.0.4")
     }
 }
 
 allprojects {
 
-    group = "com.example.gdxgame"
-
-    version = "1.0"
-
     repositories {
-        gradleScriptKotlin()
         jcenter()
     }
 
     var gdxVersion: String by extra
-    gdxVersion = "1.9.6"
-
     var ktxVersion: String by extra
-    ktxVersion = "1.9.6-b2"
+
+    gdxVersion = "1.9.8"
+    ktxVersion = "1.9.8-b3"
+
+    group = "com.example.gdxgame"
+    version = "1.0"
+
+    apply(plugin = "kotlin")
 }
+
 
 plugins {
     base
+    kotlin("jvm") version "1.2.41"
 }
 
 dependencies {
