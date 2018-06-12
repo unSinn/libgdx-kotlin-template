@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
 
@@ -10,6 +11,7 @@ buildscript {
 }
 
 allprojects {
+
 
     repositories {
         jcenter()
@@ -25,6 +27,10 @@ allprojects {
     version = "1.0"
 
     apply(plugin = "kotlin")
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "1.8"
+    }
 }
 
 

@@ -11,5 +11,6 @@ fun main(arg: Array<String>) {
     config.height = 1080
     config.width = 1920
     config.resizable = false
+    config.stencil = 8
     LwjglApplication(MainGame(), config)
 }

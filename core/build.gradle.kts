@@ -10,6 +10,7 @@ val gdxVersion: String by extra
 val ktxVersion: String by extra
 
 dependencies {
+    compile("de.alsclo:voronoi-java:1.0")
     compile("com.badlogicgames.gdx:gdx:$gdxVersion")
     compile("io.github.libktx:ktx-actors:$ktxVersion")
     compile("io.github.libktx:ktx-app:$ktxVersion")
