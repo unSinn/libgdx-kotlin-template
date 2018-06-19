@@ -8,7 +8,9 @@ import de.alsclo.voronoi.graph.Point
 
 class Area(val points: List<Point>,
            val edges: List<Edge>,
-           val poly: Polygon) {
+           val poly: Polygon,
+           val center: Point
+) {
 
     val color = Color(random(), random(), random(), random() + 0.5f)
 

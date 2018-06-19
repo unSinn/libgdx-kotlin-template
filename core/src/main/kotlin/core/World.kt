@@ -1,16 +1,12 @@
 package core
 
-import com.badlogic.gdx.graphics.Color
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.math.Polygon
 import de.alsclo.voronoi.Voronoi
 import de.alsclo.voronoi.graph.Edge
 import de.alsclo.voronoi.graph.Point
-import de.alsclo.voronoi.graph.Vertex
 import ktx.log.logger
 import java.util.*
 import java.util.stream.Collectors.toList
-import kotlin.collections.ArrayList
 
 
 class World {
@@ -85,7 +81,7 @@ class World {
             }
 
             if (floats.size > 6) {
-                areas.add(Area(points, e, Polygon(floats.toFloatArray())))
+                areas.add(Area(points, e, Polygon(floats.toFloatArray()), p))
             }
         }
     }

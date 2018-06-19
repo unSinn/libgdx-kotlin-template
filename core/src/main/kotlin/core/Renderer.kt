@@ -3,12 +3,12 @@ package core
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
+import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.graphics.g2d.PolygonSprite
+import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import ktx.log.logger
-import com.badlogic.gdx.graphics.Texture
-import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch
-import com.badlogic.gdx.graphics.g2d.PolygonSprite
 
 
 class Renderer {
@@ -43,14 +43,26 @@ class Renderer {
         for (a in world.areas) {
             shape.begin(ShapeRenderer.ShapeType.Filled)
             shape.color = a.color
-            shape.polygon(a.poly.vertices)
+            a.edges.forEach {
+                shape.triangle(
+                        it.a.location.x.toFloat(),
+                        it.a.location.y.toFloat(),
+                        it.b.location.x.toFloat(),
+                        it.b.location.y.toFloat(),
+                        a.center.x.toFloat(),
+                        a.center.y.toFloat(),
+                        a.color.cpy().mul(0.8f),
+                        a.color.cpy().mul(0.8f),
+                        a.color.cpy().mul(1.2f)
+                )
+            }
             shape.end()
         }
 
         shape.color = Color.WHITE
         for (p in world.points) {
             shape.begin(ShapeRenderer.ShapeType.Filled)
-            shape.circle(p.x.toFloat(), p.y.toFloat(), 5f)
+            shape.circle(p.x.toFloat(), p.y.toFloat(), 2f)
             shape.end()
         }
 
