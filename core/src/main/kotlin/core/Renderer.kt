@@ -3,8 +3,6 @@ package core
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
-import com.badlogic.gdx.graphics.Texture
-import com.badlogic.gdx.graphics.g2d.PolygonSprite
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
@@ -20,10 +18,7 @@ class Renderer {
     private lateinit var shape: ShapeRenderer
     private lateinit var world: World
 
-    private lateinit var poly: PolygonSprite
     private lateinit var polyBatch: PolygonSpriteBatch
-    private lateinit var textureSolid: Texture
-
     fun create() {
         spriteBatch = Game.context.inject()
         shape = Game.context.inject()
@@ -38,22 +33,22 @@ class Renderer {
         drawPoints(shape)
     }
 
-    fun drawPoints(shape: ShapeRenderer) {
+    private fun drawPoints(shape: ShapeRenderer) {
 
         for (a in world.areas) {
             shape.begin(ShapeRenderer.ShapeType.Filled)
             shape.color = a.color
             a.edges.forEach {
                 shape.triangle(
-                        it.a.location.x.toFloat(),
-                        it.a.location.y.toFloat(),
-                        it.b.location.x.toFloat(),
-                        it.b.location.y.toFloat(),
-                        a.center.x.toFloat(),
-                        a.center.y.toFloat(),
-                        a.color.cpy().mul(0.8f),
-                        a.color.cpy().mul(0.8f),
-                        a.color.cpy().mul(1.2f)
+                    it.a.location.x.toFloat(),
+                    it.a.location.y.toFloat(),
+                    it.b.location.x.toFloat(),
+                    it.b.location.y.toFloat(),
+                    a.center.x.toFloat(),
+                    a.center.y.toFloat(),
+                    a.color.cpy().mul(0.8f),
+                    a.color.cpy().mul(0.8f),
+                    a.color.cpy().mul(1.2f)
                 )
             }
             shape.end()
@@ -66,8 +61,6 @@ class Renderer {
             shape.end()
         }
 
-
     }
-
 
 }
